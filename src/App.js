@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './App.css'
 
 const url = 'https://course-api.com/react-tours-project'
 const App = () => {
@@ -9,7 +10,7 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         setTours(data)
-        console.log(data)
+        // console.log(data)
       })
       .catch((error) => console.log(error))
   }, [])
@@ -20,8 +21,8 @@ const App = () => {
       {tours.map((tour) => {
         const { id, name, info, price, image } = tour
         return (
-          <div key={id}>
-            <img src={image} alt={name} />
+          <div key={id} className='container'>
+            <img src={image} alt={name} className='img' />
             <div>
               <h3>{name}</h3>
               <p>{price}</p>

@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  border: 1px solid #222;
+  border-radius: 5px;
+  margin: 30px;
+  width: 40vw;
+}
+
+.img {
+  height: 20rem;
+  width: 100%;
+  object-fit: cover;
+}
