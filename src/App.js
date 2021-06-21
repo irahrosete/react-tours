@@ -5,6 +5,8 @@ const url = 'https://course-api.com/react-tours-project'
 const App = () => {
   const [tours, setTours] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [readButton, setReadButton] = useState('Read More')
+  const [text, setText] = useState()
 
   useEffect(() => {
     fetch(url)
@@ -23,6 +25,13 @@ const App = () => {
 
   const refreshTours = () => {
     console.log(tours)
+  }
+
+  const toggleReadButton = (id) => {
+    console.log(id)
+    readButton === 'Read More'
+      ? setReadButton('Read Less')
+      : setReadButton('Read More')
   }
 
   if (isLoading) {
@@ -44,7 +53,10 @@ const App = () => {
                   <p>$ {price}</p>
                   <p>
                     {info}
-                    <button>Read More</button>
+                    {/* {console.log(info.length)} */}
+                    <button onClick={() => toggleReadButton(id)}>
+                      {readButton}
+                    </button>
                   </p>
                   <button onClick={() => removeTour(id)}>Not Interested</button>
                 </div>
