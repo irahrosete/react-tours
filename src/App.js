@@ -15,6 +15,12 @@ const App = () => {
       .catch((error) => console.log(error))
   }, [])
 
+  const removeTour = (id) => {
+    console.log(tours)
+    let newTours = tours.filter((tour) => tour.id !== id)
+    setTours(newTours)
+  }
+
   return (
     <>
       <h1>Our Tours</h1>
@@ -27,7 +33,7 @@ const App = () => {
               <h3>{name}</h3>
               <p>{price}</p>
               <p>{info}</p>
-              <button>Not Interested</button>
+              <button onClick={() => removeTour(id)}>Not Interested</button>
             </div>
           </div>
         )
