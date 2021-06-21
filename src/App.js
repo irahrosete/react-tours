@@ -6,9 +6,8 @@ const App = () => {
   const [tours, setTours] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [readMore, setReadMore] = useState(true)
-  // const [text, setText] = useState()
 
-  useEffect(() => {
+  const refreshTours = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -16,15 +15,15 @@ const App = () => {
         setTours(data)
       })
       .catch((error) => console.log(error))
+  }
+
+  useEffect(() => {
+    refreshTours()
   }, [])
 
   const removeTour = (id) => {
     let newTours = tours.filter((tour) => tour.id !== id)
     setTours(newTours)
-  }
-
-  const refreshTours = () => {
-    console.log(tours)
   }
 
   if (isLoading) {
