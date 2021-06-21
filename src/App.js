@@ -5,8 +5,8 @@ const url = 'https://course-api.com/react-tours-project'
 const App = () => {
   const [tours, setTours] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [readButton, setReadButton] = useState('Read More')
-  const [text, setText] = useState()
+  const [readMore, setReadMore] = useState(true)
+  // const [text, setText] = useState()
 
   useEffect(() => {
     fetch(url)
@@ -27,13 +27,6 @@ const App = () => {
     console.log(tours)
   }
 
-  const toggleReadButton = (id) => {
-    console.log(id)
-    readButton === 'Read More'
-      ? setReadButton('Read Less')
-      : setReadButton('Read More')
-  }
-
   if (isLoading) {
     return <h1>Loading...</h1>
   } else {
@@ -52,10 +45,9 @@ const App = () => {
                   <h3>{name}</h3>
                   <p>$ {price}</p>
                   <p>
-                    {info}
-                    {/* {console.log(info.length)} */}
-                    <button onClick={() => toggleReadButton(id)}>
-                      {readButton}
+                    {readMore ? `${info.substring(0, 200)}...` : info}
+                    <button onClick={() => setReadMore(!readMore)}>
+                      {readMore ? 'Read More' : 'Read Less'}
                     </button>
                   </p>
                   <button onClick={() => removeTour(id)}>Not Interested</button>
