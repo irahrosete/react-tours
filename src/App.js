@@ -33,7 +33,10 @@ const App = () => {
       <>
         <h1>Our Tours</h1>
         {tours.length < 1 ? (
-          <button onClick={refreshTours}>Refresh</button>
+          <>
+            <h2>No tours left</h2>
+            <button onClick={refreshTours}>Refresh</button>
+          </>
         ) : (
           tours.map((tour) => {
             const { id, name, info, price, image } = tour
@@ -61,3 +64,8 @@ const App = () => {
 }
 
 export default App
+
+// TO DO:
+// apply components
+// fix read more to only trigger on the tour and not on all tours
+// style
