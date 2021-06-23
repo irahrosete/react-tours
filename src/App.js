@@ -30,35 +30,46 @@ const App = () => {
     return <h1>Loading...</h1>
   } else {
     return (
-      <>
-        <h1>Our Tours</h1>
-        {tours.length < 1 ? (
-          <>
-            <h2>No tours left</h2>
-            <button onClick={refreshTours}>Refresh</button>
-          </>
-        ) : (
-          tours.map((tour) => {
-            const { id, name, info, price, image } = tour
-            return (
-              <div key={id} className='container'>
-                <img src={image} alt={name} className='img' />
-                <div>
-                  <h3>{name}</h3>
-                  <p>$ {price}</p>
-                  <p>
-                    {readMore ? `${info.substring(0, 200)}...` : info}
-                    <button onClick={() => setReadMore(!readMore)}>
-                      {readMore ? 'Read More' : 'Read Less'}
+      <main>
+        <h1>Tours</h1>
+        <section>
+          {tours.length < 1 ? (
+            <>
+              <h2>No tours left</h2>
+              <div className='center-button'>
+                <button onClick={refreshTours}>Refresh</button>
+              </div>
+            </>
+          ) : (
+            tours.map((tour) => {
+              const { id, name, info, price, image } = tour
+              return (
+                <div key={id} className='container'>
+                  <img src={image} alt={name} className='img' />
+                  <div className='tour-detail'>
+                    <h3>{name}</h3>
+                    <p>$ {price}</p>
+                  </div>
+                  <p className='description'>
+                    {readMore ? `${info.substring(0, 200)}... ` : info}
+                    <button
+                      className='read-btn'
+                      onClick={() => setReadMore(!readMore)}
+                    >
+                      {readMore ? 'Read More' : 'See Less'}
                     </button>
                   </p>
-                  <button onClick={() => removeTour(id)}>Not Interested</button>
+                  <div className='center-button'>
+                    <button className='not-btn' onClick={() => removeTour(id)}>
+                      Not Interested
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )
-          })
-        )}
-      </>
+              )
+            })
+          )}
+        </section>
+      </main>
     )
   }
 }
