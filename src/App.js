@@ -33,6 +33,7 @@ const App = () => {
     return (
       <main>
         <h1>Tours</h1>
+        <div className='underline'></div>
         <section>
           {tours.length < 1 ? (
             <>
