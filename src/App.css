@@ -53,10 +53,26 @@ main {
 
 .not-btn {
   background: transparent;
-  border-color: #bb2525;
   border: 1px solid #bb2525;
   color: #bb2525;
   border-radius: 5px;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
+}
+
+.refresh-btn {
+  background: #49a6e9;
+  border: 1px solid #49a6e9;
+  color: #eee;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.price {
+  background: rgba(190, 222, 252, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 5px;
+  color: #49a6e9;
+  font-weight: bold;
 }
